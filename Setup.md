@@ -1,5 +1,5 @@
 # Getting Started
-Welcome to HiringThing! We are so happy to have you. Please follow these instructions below to get the ATS running on your local machine.
+Welcome to HiringThing! We are so happy to have you. Please follow these instructions below to get the ATS running on your local machine .
 
 If you are unable to complete any steps outlined in this doc or encounter issues be sure to ask for help in the [`#engineering` channel in Slack](https://hiringthing.slack.com/app_redirect?channel=engineering)
 
