@@ -1,6 +1,6 @@
 # Cheat Sheet Codes
 
-### Starting
+### Starting the ATS Locally
 
 ```sh
 ./atsdev start # || up
