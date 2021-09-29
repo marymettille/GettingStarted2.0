@@ -5,6 +5,11 @@
 ```sh
 ./atsdev start # || up
 ```
+### Closing the ATS Locally
+
+```sh
+control^ + C # || down
+```
 
 ### Updating Migrations
 
