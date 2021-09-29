@@ -132,6 +132,10 @@ HiringThing's Docker images are stored in a private Amazon Elastic Container Reg
 After performing all above steps, from the root directory of the HiringThing ATS git repository run:
 
 ```sh
+yarn install
+```
+Then
+```sh
 ./atsdev build # -b || --build
 ```
 
