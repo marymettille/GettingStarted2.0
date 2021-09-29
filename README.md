@@ -12,16 +12,31 @@
 docker compose run web bin/rails db:migrate RAILS_ENV=development
 ```
 
-### Staging Access
+### Staging
+
+First, go to the #stage-deploy channel in slack and see if there is an open staging environment to use. If not, you can message the group in that channel to see if you can get one for a few hours.
 
 - Start PritunI and connect using the pin you created, as well as the access code in Google Authentication app
-- In VSCode, type this into the terminal:
+- In your editor, type this into the terminal:
 
 ```sh
 ssh bastion-stage
 ```
 
+- To deploy to a staging environment, type the below into your terminal:
+
+```sh
+qa-deploy <stage_server> <branch_name>
+```
+Example:
+```sh
+qa-deploy stage4 PI_1234
+```
+- If you need product to review anything (or for QA to happen) go to the #qa channel in slack and message them that your changes are up on stage#. They will follow up with any changes you may need.
+
 - To close the staging environment, type ```exit``` into the the terminal
+
+
 
 ### Testing
 
