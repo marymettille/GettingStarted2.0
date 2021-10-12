@@ -55,7 +55,7 @@ Per Hovis: "If you're editing an existing feature and not changing functionality
 Per Hovis: "If the existing tests are so gappy that they don't cover a bug you added that's an "our fault" instead of a "your fault". If you touch a component that has no tests...you should really add some. Ask for advice in this case."
 
 ### Installing new dependencies
-- ```yarn install WHATEVER WHATEVER```
+- ```yarn install -W WHATEVER WHATEVER```
 - Bring down your stack with ```dc down```
 - Bring up your stack with ```dcl up -d web```
 - ```docker-compose -f docker-compose.yml -f docker-compose.local.yml```
