@@ -53,3 +53,12 @@ qa-deploy stage4 PI_1234
 Per Hovis: "If you're editing an existing feature and not changing functionality then I would rely on the existing tests. If the existing tests fail then they should be updated.  Tests have to be rewritten basically never."
 
 Per Hovis: "If the existing tests are so gappy that they don't cover a bug you added that's an "our fault" instead of a "your fault". If you touch a component that has no tests...you should really add some. Ask for advice in this case."
+
+### Installing new dependencies
+- ```yarn install WHATEVER WHATEVER```
+- Bring down your stack with ```dc down```
+- Bring up your stack with ```dcl up -d web```
+- ```docker-compose -f docker-compose.yml -f docker-compose.local.yml```
+- The thing that matters is that docker-compose.yml specifies a cached (downloaded) Docker image for the assets container that doesn't include your new modules
+- dcl will use an overlay so that the assets container is built on your local instead, so that it has the updated modules.
+- Our CI process always builds the JS env from scratch (and is also responsible for pushing new docker images to the repository for caching)
