@@ -56,8 +56,9 @@ Per Hovis: "If the existing tests are so gappy that they don't cover a bug you a
 
 ### Installing new dependencies
 - ```yarn install -W WHATEVER WHATEVER```
+- ```dcl build assets```
 - Bring down your stack with ```dc down```
-- Bring up your stack with ```dcl up -d web```
+- Bring up your stack with ```dcl up -d web``` or ```dcl up``` (./astdev will not work!)
 - ```docker-compose -f docker-compose.yml -f docker-compose.local.yml```
 - The thing that matters is that docker-compose.yml specifies a cached (downloaded) Docker image for the assets container that doesn't include your new modules
 - dcl will use an overlay so that the assets container is built on your local instead, so that it has the updated modules.
