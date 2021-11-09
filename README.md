@@ -63,3 +63,10 @@ Per Hovis: "If the existing tests are so gappy that they don't cover a bug you a
 - The thing that matters is that docker-compose.yml specifies a cached (downloaded) Docker image for the assets container that doesn't include your new modules
 - dcl will use an overlay so that the assets container is built on your local instead, so that it has the updated modules.
 - Our CI process always builds the JS env from scratch (and is also responsible for pushing new docker images to the repository for caching)
+
+### Database out of sync with master
+
+Sometimes the database on your local machine will become out of sync with the master. When this happens, you will not be able to simply merge the change in structure.sql, because your local will say that the default in master is "wrong". To fix this you need to either:
+
+- Rebuild your stack with ```./atsdev build```
+- TBD
