@@ -1,7 +1,7 @@
 # Git
 
 ### Rewriting History
-![Explaination of how to change history](images/rewritinghistory)
+![Explaination of how to change history](/images/rewritinghistory.png)
 
 ### Saving your changes
 
