@@ -17,6 +17,7 @@ control^ + C # || down
 docker compose run web bin/rails db:migrate RAILS_ENV=development
 ```
 
+###
 ### Staging
 
 First, go to the #stage-deploy channel in slack and see if there is an open staging environment to use. If not, you can message the group in that channel to see if you can get one for a few hours.
@@ -41,7 +42,18 @@ qa-deploy stage4 PI_1234
 
 - To close the staging environment, type ```exit``` into the the terminal
 
+### Database out of sync with master // Rebuilding database
 
+Sometimes the database on your local machine will become out of sync with the master. When this happens, you will not be able to simply merge the change in structure.sql, because your local will say that the default in master is "wrong". To fix this you need to either:
+
+- Rebuild your stack with ```./atsdev build```
+- Reset your database intirely with 
+```sh 
+dc run web bin/rails db:drop
+dc run web bin/rails db:create
+dc run web bin/rails db:schema:load
+dc run -e SEED_INITIAL_DEVELOPMENT_COMPANY=1 web bin/rails db:seed
+```
 
 ### Testing
 
@@ -64,9 +76,3 @@ Per Hovis: "If the existing tests are so gappy that they don't cover a bug you a
 - dcl will use an overlay so that the assets container is built on your local instead, so that it has the updated modules.
 - Our CI process always builds the JS env from scratch (and is also responsible for pushing new docker images to the repository for caching)
 
-### Database out of sync with master
-
-Sometimes the database on your local machine will become out of sync with the master. When this happens, you will not be able to simply merge the change in structure.sql, because your local will say that the default in master is "wrong". To fix this you need to either:
-
-- Rebuild your stack with ```./atsdev build```
-- TBD
