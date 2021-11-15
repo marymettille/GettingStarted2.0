@@ -191,7 +191,7 @@ You can visit [register.applicant-tracking.test](http://register.applicant-track
 
 run `docker-compose run web bin/rails db:seed`. (this gets done for you automatically when building the entire stack from scratch via `./atsdev build`)
 
-This command will populate development database with demo data, create new company ([asdf.applicant-tracking.test](http://asdf.applicant-tracking.test)) and user (*email:* `test@example.com`, *password:* `secret1`).
+This command will populate development database with demo data, create new company ([asdf.applicant-tracking.test](http://asdf.applicant-tracking.test)) and user (*email:* `test@example.com`, *password:* `secret123`).
 
 Populating of the whole database will take about 20 minutes to complete, but you can start to use HiringThing in your browser right after you'll see `Sample User created` message in the terminal window where rails task is running.
 
