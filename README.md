@@ -17,7 +17,13 @@ control^ + C # || down
 docker compose run web bin/rails db:migrate RAILS_ENV=development
 ```
 
-###
+### Pull new docker images
+
+- Checkout Master
+- Pull master
+- Stop local server
+- `docker-compose pull`
+
 ### Staging
 
 First, go to the #stage-deploy channel in slack and see if there is an open staging environment to use. If not, you can message the group in that channel to see if you can get one for a few hours.
