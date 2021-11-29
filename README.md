@@ -48,6 +48,8 @@ qa-deploy stage4 PI_1234
 
 - To close the staging environment, type ```exit``` into the the terminal
 
+- To access a staging server, read this confluence article: https://hiringthing.atlassian.net/wiki/spaces/HTR/pages/886046763/Stage+and+testing+URLs
+
 ### Database out of sync with master // Rebuilding database
 
 Sometimes the database on your local machine will become out of sync with the master. When this happens, you will not be able to simply merge the change in structure.sql, because your local will say that the default in master is "wrong". To fix this you need to either:
