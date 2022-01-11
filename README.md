@@ -63,7 +63,19 @@ dc run web bin/rails db:schema:load
 dc run -e SEED_INITIAL_DEVELOPMENT_COMPANY=1 web bin/rails db:seed
 ```
 
-### Testing
+### Installing new dependencies
+- ```yarn install -W WHATEVER WHATEVER```
+- ```dcl build assets```
+- Bring down your stack with ```dc down```
+- Bring up your stack with ```dcl up -d web``` or ```dcl up``` (./astdev will not work!)
+- ```docker-compose -f docker-compose.yml -f docker-compose.local.yml```
+- The thing that matters is that docker-compose.yml specifies a cached (downloaded) Docker image for the assets container that doesn't include your new modules
+- dcl will use an overlay so that the assets container is built on your local instead, so that it has the updated modules.
+- Our CI process always builds the JS env from scratch (and is also responsible for pushing new docker images to the repository for caching)
+
+## Testing
+
+### Enzyme
 
 - ```yarn test``` runs the suite
 - ```yarn testfile path/to/file.spec.js path/to/otherFile.spec.js``` will test the file(s) once
@@ -74,13 +86,12 @@ Per Hovis: "If you're editing an existing feature and not changing functionality
 
 Per Hovis: "If the existing tests are so gappy that they don't cover a bug you added that's an "our fault" instead of a "your fault". If you touch a component that has no tests...you should really add some. Ask for advice in this case."
 
-### Installing new dependencies
-- ```yarn install -W WHATEVER WHATEVER```
-- ```dcl build assets```
-- Bring down your stack with ```dc down```
-- Bring up your stack with ```dcl up -d web``` or ```dcl up``` (./astdev will not work!)
-- ```docker-compose -f docker-compose.yml -f docker-compose.local.yml```
-- The thing that matters is that docker-compose.yml specifies a cached (downloaded) Docker image for the assets container that doesn't include your new modules
-- dcl will use an overlay so that the assets container is built on your local instead, so that it has the updated modules.
-- Our CI process always builds the JS env from scratch (and is also responsible for pushing new docker images to the repository for caching)
+### Jest
+- `yarn jest NAME_OF_TEST` will test the jest test once
+    - Example `yarn jest ScorecardReviews`
+- `yarn jest NAME_OF_TEST --watchAll` will test the jest test and rerun all tests again
+
+### Cypress
+- `docker-compose up cypress_server` starts up the cypress server
+- `yarn run cypress open` runs the cypress test runner
 
