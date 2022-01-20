@@ -3,9 +3,6 @@ Welcome to HiringThing! We are so happy to have you. Please follow these instruc
 
 If you are unable to complete any steps outlined in this doc or encounter issues be sure to ask for help in the [`#engineering` channel in Slack](https://hiringthing.slack.com/app_redirect?channel=engineering)
 
-## Environment Notes
-HiringThing should be developed while running either macOS, Linux, or Windows under WSL2. When using WSL2, you will primarily follow Linux installation instructions for required tools, and install them inside your WSL environment.
-
 ## EditorConfig
 Install the [EditorConfig plugin](http://editorconfig.org/#download) for your editor of choice.
 
@@ -45,10 +42,17 @@ This should output your AWS IAM user's ID, HiringThing's Dev AWS Account `618559
 
 [For additonal documentation, please see](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) 
 
-## Install Ruby
-Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) on your host. The exact version doesn't matter, this will only be used for the `docker-sync` utility below.
+## Local environment setup
 
-* Note: If you are installing on a mac, I recommend [using this link here to create a ruby environment for a mac](https://github.com/monfresh/laptop)
+In order to integration linters and other code tools with your editor, you need both a ruby and nodejs environment set up on your host.
+
+### Ruby
+
+While the exact verison of Ruby isn't critical, it's easiest to install [rbenv](https://github.com/rbenv/rbenv) which will automatically pick the version of ruby used by the app via the `.ruby-version` file.
+
+### Node
+
+You should install at least a matching major version of node to ensure compatability with the packages in use. Consult `.node-version` for current version. You may wish to use a tool such as [avn](https://github.com/wbyoung/avn) to manage this automatically.
 
 ## Install Docker
 Install **Docker** for:
