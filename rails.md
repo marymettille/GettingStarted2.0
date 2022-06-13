@@ -31,3 +31,14 @@ user = User.find_by(email:'test@example.com')
 hiringthing = WhitelabelAccount.find_by(system_version: 'hiringthing')
 user.company.update(whitelabel_account: hiringthing)
 ```
+
+### Running a rake task
+
+- **In Production** `RAILS_ENV=production bundle exec rails your_rake_task:name`
+- **On a staging server, after ssh-ing into your chosen stage environment** `RAILS_ENV=staging bundle exec rails your_rake_task:name`
+- **In development** `docker-compose exec web bundle exec rails your_rake_task:name`
+
+### Testing
+
+- `docker-compose exec test FILEPATH` will test the rails test if your stack is down
+- `docker-compose exec test rails test FILEPATH` will test the rails test of your choosing if your stack is up
