@@ -17,6 +17,12 @@ control^ + C # || down
 docker compose run web bin/rails db:migrate RAILS_ENV=development
 ```
 
+### Running Local Version of storybook
+
+```sh
+dc exec assets yarn storybook
+```
+
 ### Pull new docker images
 
 - Checkout Master
@@ -94,4 +100,8 @@ Per Hovis: "If the existing tests are so gappy that they don't cover a bug you a
 ### Cypress
 - `docker-compose up cypress_server` starts up the cypress server
 - `yarn run cypress open` runs the cypress test runner
+
+### Rails
+- `docker-compose exec test FILEPATH` will test the rails test if your stack is down
+- `docker-compose exec test rails test  FILEPATH` will test the rails test of your choosing if your stack is up
 
