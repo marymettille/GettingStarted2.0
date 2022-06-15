@@ -42,3 +42,7 @@ user.company.update(whitelabel_account: hiringthing)
 
 - `docker-compose exec test FILEPATH` will test the rails test if your stack is down
 - `docker-compose exec test rails test FILEPATH` will test the rails test of your choosing if your stack is up
+
+## Production Console
+
+To open a production console, ssh into `bastion-prod` then type `rails-console "Your ticket # and message"` into the terminal. The default will open up a sandbox, where you can explore without actually modifying data.
