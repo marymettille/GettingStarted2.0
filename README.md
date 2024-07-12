@@ -3,12 +3,42 @@
 ### Starting the ATS Locally
 
 ```sh
-./atsdev start # || up
+./atsdev start # || dc up
 ```
 ### Closing the ATS Locally
 
 ```sh
-control^ + C # || down
+control^ + C # || dc down
+```
+
+### Screaming Nuke
+
+```sh
+NUKEPARTONE ()
+{
+    docker-compose kill;
+    docker-compose down;
+    docker-sync clean;
+    docker container prune -y;
+    docker image prune -a -y;
+    docker volume prune -y;
+    docker system prune -y
+    docker image ls -a;
+    docker container ls -a;
+    docker volume ls;
+    ./atsdev build;
+    docker-compose down;
+    docker-sync clean;
+    docker-compose up -d db;
+}
+
+NUKEPARTTWO ()
+{
+    #In a new terminal, while your stack is up!
+    docker compose exec web rails db:reset SEED_INITIAL_DEVELOPMENT_COMPANY=true;
+    docker compose exec test rails db:reset SEED_INITIAL_DEVELOPMENT_COMPANY=true;
+    ./atsdev start
+}
 ```
 
 ### Updating Migrations
@@ -17,7 +47,7 @@ control^ + C # || down
 docker compose run web bin/rails db:migrate RAILS_ENV=development
 ```
 
-### Running Local Version of storybook
+## Running Local Version of storybook
 
 ```sh
 dc exec assets yarn storybook
