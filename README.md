@@ -30,6 +30,7 @@ NUKEPARTONE ()
     docker-compose down;
     docker-sync clean;
     docker-compose up -d db;
+    docker-composeup web assets
 }
 
 NUKEPARTTWO ()
